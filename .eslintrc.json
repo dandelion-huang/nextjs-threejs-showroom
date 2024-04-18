@@ -1,3 +1,64 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "next",
+    "eslint:recommended",
+    "prettier",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "plugins": [
+    "prettier",
+    "@typescript-eslint",
+    "react",
+    "react-hooks",
+    "simple-import-sort"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    // JavaScript rules
+    "no-unused-vars": "warn",
+    "no-var": "warn",
+    "object-shorthand": "warn",
+    "prefer-const": "warn",
+    "quote-props": ["warn", "as-needed"],
+    // TypeScript rules
+    "@typescript-eslint/array-type": [
+      "warn",
+      {
+        "default": "array"
+      }
+    ],
+    // React rules
+    "prettier/prettier": "warn",
+    "react/jsx-filename-extension": [
+      "warn",
+      {
+        "extensions": ["ts", "tsx"]
+      }
+    ],
+    "react/jsx-fragments": ["warn", "syntax"], // Shorthand syntax for React fragments
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    // Import sorting rules
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
+  }
 }

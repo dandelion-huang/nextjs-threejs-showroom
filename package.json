@@ -3,24 +3,69 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prepare": "husky",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "eslint:fix": "eslint --fix",
+    "prettier:write": "prettier --write --cache",
+    "stylelint:fix": "stylelint --fix"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  },
+  "lint-staged": {
+    "**.*.{js,jsx,ts,tsx}": [
+      "pnpm eslint:fix",
+      "pnpm prettier:write"
+    ],
+    "*.json": [
+      "pnpm prettier:write"
+    ],
+    "*.css": [
+      "pnpm stylelint:fix",
+      "pnpm prettier:write"
+    ],
+    "*.md": [
+      "pnpm markdownlint",
+      "pnpm prettier:write"
+    ]
   },
   "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.2"
+    "next": "14.2.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.2"
+    "@commitlint/cli": "^19.2.2",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@commitlint/cz-commitlint": "^19.2.0",
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25",
+    "@typescript-eslint/eslint-plugin": "^7.7.0",
+    "@typescript-eslint/parser": "^7.7.0",
+    "autoprefixer": "^10.4.19",
+    "commitizen": "^4.3.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.2",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-simple-import-sort": "^12.1.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "markdownlint-cli": "^0.39.0",
+    "postcss": "^8.4.38",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "stylelint": "^14.0.0",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-recommended": "^6.0.0",
+    "stylelint-order": "^6.0.4",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.5"
   }
 }

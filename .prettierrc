@@ -1,0 +1,9 @@
+{
+  "bracketSpacing": true,
+  "htmlWhitespaceSensitivity": "strict",
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "semi": true,
+  "singleQuote": true,
+  "tailwindConfig": "./tailwind.config.ts",
+  "trailingComma": "es5"
+}
